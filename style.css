@@ -1,15 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 
 *{
   margin: 0;
   padding: 0;
   outline: 0;
-}
-
-body {
-  font: 400 16px  'Pacifico', cursive;
-  background-color: #FFFBFA;
-  color: #442C2E;
 }
 
 .container{
@@ -21,23 +16,27 @@ body {
   flex: 1;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
-  padding: 5px;
+  align-items: center;
+  padding: 10px;
+  background-color: #c2185b;
+  color: #ffffff;
+  font: 400 20px  'Pacifico', cursive;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .container header img{
-  max-width: 48px;
-  max-height: 48px;
+  max-width: 60px;
+  max-height: 60px;
   margin-right: 5px;
 }
 
-.container .images-container{
+.images-container{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
 }
 
-.container .images-container img{
+/* .container .images-container img{
   image-orientation: initial;
   max-width: 300px;
   height: auto;
@@ -50,4 +49,37 @@ body {
   .container .images-container img{
     max-width: 100%;
   }
+} */
+
+.image{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  max-width: 300px;
+  margin-top: 30px;
+  background-color:#ffffff;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+@media only screen and (max-width: 600px){
+  .image{
+    max-width: 100%;
+  }
+}
+
+.image img{
+  width: 100%;
+  height: auto;
+}
+
+.image p{
+  color: #727272;
+  padding: 10px;
+  font-size: 20px;
+  text-align: center;
+  min-height: 50px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  min-height: 50px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
