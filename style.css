@@ -36,32 +36,35 @@ body {
 }
 
 .images-container{
+  list-style: none;
+  padding: 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
 }
 
-.card{
+.images-container__card{
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   width: 300px;
+  height: auto;
   margin-top: 30px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 @media only screen and (max-width: 600px){
-  .image{
+  .images-container__card{
     width: 100%;
   }
 }
 
-.card img{
+.images-container__card__img{
   width: 100%;
   height: auto;
 }
 
-.card p{
+.images-container__card__text{
   color: var(--text--color);
   padding: 5px;
   font-size: 20px;

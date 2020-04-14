@@ -56,15 +56,15 @@ const imageList = document.getElementById('image-container')
 for(let i = 1; i <= 20;i++){
     const card = createImgCard({
         cardConfig: {
-            className: 'card'
+            className: 'images-container__card'
         },
         imgConfig:{
             imgSource: `./assets/img/album/img${i}.jpg`,
-            className: ''
+            className: 'images-container__card__img'
         },
         textConfig: {
             contentText: loveMenssages[i-1],
-            className: ''
+            className: 'images-container__card__text'
         }
     })
 
