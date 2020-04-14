@@ -1,4 +1,3 @@
-const imageContainer = document.getElementById('image-container')
 const loveMenssages = [
     'Tem amor que parece que nasceu para durar uma vida inteira, tipo o meu por você.',
     'O amor não é viver felizes para sempre, isso é um conto de fadas. O amor é saber como enfrentar a vida juntos.',
@@ -22,20 +21,53 @@ const loveMenssages = [
     'Vamos juntos, porque a vida sem você já não tem mais graça!'
 ]
 
-for(let i = 1; i <= 20;i++){
-    const div = document.createElement('div')
-    div.className = 'image'
 
+function createImg({ imgSource, className }){
     const img = document.createElement('img')
-    img.src = `./assets/img/album/img${i}.jpg`
+    img.src = imgSource
+    img.className = className
+    return img
+}
 
-    const p = document.createElement('p')
-    p.innerHTML = loveMenssages[i - 1]
+function createText({ contentText, className }){
+    const text = document.createElement('p')
+    text.innerHTML = contentText
+    text.className = className
+    return text
+}
 
-    div.appendChild(img)
-    div.appendChild(p)
+function createImgCard({ cardConfig, imgConfig, textConfig }){
+    const { className } = cardConfig
 
-    imageContainer.appendChild(div)
+    const img = createImg({ ...imgConfig })
+    const text = createText({ ...textConfig })
 
+    const card = document.createElement('li')
+    card.className = className
+
+    card.appendChild(img)
+    card.appendChild(text)
+
+    return card
+}
+
+const imageList = document.getElementById('image-container')
+
+for(let i = 1; i <= 20;i++){
+    const card = createImgCard({
+        cardConfig: {
+            className: 'card'
+        },
+        imgConfig:{
+            imgSource: `./assets/img/album/img${i}.jpg`,
+            className: ''
+        },
+        textConfig: {
+            contentText: loveMenssages[i-1],
+            className: ''
+        }
+    })
+
+    imageList.appendChild(card)
     setTimeout(1000)
 }
