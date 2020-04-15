@@ -69,5 +69,4 @@ for(let i = 1; i <= 20;i++){
     })
 
     imageList.appendChild(card)
-    setTimeout(1000)
 }
