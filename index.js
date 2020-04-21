@@ -36,7 +36,7 @@ function createText({ contentText, className }){
     return text
 }
 
-function createImgCard({ cardConfig, imgConfig, textConfig }){
+function createCard({ cardConfig, imgConfig, textConfig }){
     const { className } = cardConfig
 
     const img = createImg({ ...imgConfig })
@@ -51,22 +51,27 @@ function createImgCard({ cardConfig, imgConfig, textConfig }){
     return card
 }
 
-const imageList = document.getElementById('image-container')
-
-for(let i = 1; i <= 20;i++){
-    const card = createImgCard({
-        cardConfig: {
-            className: 'images-container__card'
-        },
-        imgConfig:{
-            imgSource: `./assets/img/album/img${i}.jpg`,
-            className: 'images-container__card__img'
-        },
-        textConfig: {
-            contentText: loveMenssages[i-1],
-            className: 'images-container__card__text'
+function createAlbum(albumElemnt = document.createElement('ul'), description = []){
+    description.map((menssage, index) => {
+        const cardConfig = {
+            cardConfig: {
+                className: 'card'
+            },
+            imgConfig: {
+                imgSource: `./assets/img/album/img${index + 1}.jpg`,
+                className: 'card__img'
+            },
+            textConfig: {
+                contentText: menssage,
+                className: 'card__text'
+            }
         }
-    })
 
-    imageList.appendChild(card)
+        const card = createCard(cardConfig)
+        albumElemnt.appendChild(card)
+    })
 }
+
+const albumElemnt = document.getElementById('album')
+
+createAlbum(albumElemnt, loveMenssages)
